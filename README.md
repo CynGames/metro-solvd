@@ -1,7 +1,7 @@
 # Metro API #
 
 ## Overview ##
-This API allows you to manage resources for a metro managing company, including employees, trains, schedules, stations, tickets, routes and maintenance.
+This API allows you to manage resources for a metro managing company, including employees, trains, schedules, stations, tickets and maintenance.
 
 ## Setup ##
 1. Run `docker-compose up`. 
@@ -48,7 +48,6 @@ This API allows you to manage resources for a metro managing company, including 
 | PUT | /stations/:id | Updates an existing station |
 | PATCH | /stations/:id | Makes partial updates to an existing station |
 | DELETE | /stations/:id | Deletes an existing station |
-
 
 ### Tickets ###
 | Method | Endpoint | Description |
