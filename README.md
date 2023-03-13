@@ -4,9 +4,8 @@
 This API allows you to manage resources for a metro managing company, including employees, trains, schedules, stations, tickets, routes and maintenance.
 
 ## Setup ##
-
-Step 1: Run `docker-compose up`.
-Step 2: Open `http://localhost:3000` in your browser.
+1. Run `docker-compose up`. 
+2. Open `http://localhost:3000` in your browser.
 
 ## Endpoints API Documentation ##
 
