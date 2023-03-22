@@ -10,4 +10,3 @@ const server = http.createServer((req, res) => {
 
 // Start the server
 server.listen(3000);
-
