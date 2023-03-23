@@ -38,7 +38,9 @@
 
 ## Overview ##
 
-This API allows you to manage resources for a metro managing company, including employees, trains, schedules and
+This API is part of the LABA intership from Solvd. 
+
+It allows you to manage resources for a metro managing company, including employees, trains, schedules and
 stations.
 
 ## Setup ##
@@ -48,14 +50,43 @@ stations.
 3. Run `docker-compose up`.
 4. Open `http://localhost:3000` in your browser.
 
+## Authentication ##
+The API uses JWT authentication. To get a token, you need to send a POST request to `/api/auth/login`.
+
+[//]: # (```)
+
+[//]: # ({)
+
+[//]: # (  "username": "admin",)
+
+[//]: # (  "password": "admin")
+
+[//]: # (})
+
+[//]: # (```)
+
+Example of response:
+```
+{
+  "message": "Login Successful.",
+  "token": "<token>"
+}
+```
+
 ## Summary of the relationship between objects ##
 
-- `Line` contains a list of `Stations` that it stops at.
-- `Train` runs on a specific `Line` and follows a `Schedule`.
+- `Line` contains a list of `Stations` that it stops at. **One to many relationship.**
+- `Train` runs on a specific `Line` and follows a `Schedule`. **One to one relationship.**
 - `Schedule` specifies the times that a `Train` arrives at and departs from each `Station` on its `Line`.
 - `Employee` can be assigned to work on a specific `Train` or at a specific `Station`.
 
 # Endpoints API Documentation #
+
+## Homework Endpoint (`api/homework`) ##
+
+GET `/homework` - Returns the initial homework topic.
+
+This is a special protected endpoint that will be removed or refactored in the future.
 
 ## Employees Overview `(api/employees)` ##
 
