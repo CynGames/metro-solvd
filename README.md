@@ -38,7 +38,7 @@
 
 ## Overview ##
 
-This API is part of the LABA intership from Solvd. 
+This API is part of the LABA internship from Solvd. 
 
 It allows you to manage resources for a metro managing company, including employees, trains, schedules and
 stations.
