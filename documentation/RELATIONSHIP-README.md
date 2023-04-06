@@ -2,17 +2,17 @@
 
 ## Table of Contents ##
 
-- [Entity Relationship Diagram](#entity-relationship-diagram)
-- [Detailed Table Information](#detailed-table-information)
-    - [Employee](#employee)
-    - [Trains](#trains)
-    - [Lines](#lines)
-    - [Stations](#stations)
-    - [Schedule](#schedule)
-- [Junction Tables](#junction-tables)
-    - [Stations_Line](#stationsline)
-    - [Trains_Schedule](#trainsschedule)
-- [Relationships Explained](#relationships-explained)
+- [Entity Relationship Diagram](#entity-relationship-diagram-)
+- [Detailed Table Information](#detailed-table-information-)
+    - [Employee](#employee-)
+    - [Trains](#trains-)
+    - [Lines](#lines-)
+    - [Stations](#stations-)
+    - [Schedule](#schedule-)
+- [Junction Tables](#junction-tables-)
+    - [Stations_Line](#stationsline-)
+    - [Trains_Schedule](#trainsschedule-)
+- [Relationships Explained](#relationships-explained-)
 
 ## Entity Relationship Diagram ##
 
@@ -30,57 +30,57 @@
 
 ### Trains ###
 
-| Column       | Type    | Description                           |
-|--------------|---------|---------------------------------------|
-| id           | PK      | The unique identifier of the train.   |
-| name         | VARCHAR | The name of the train.                |
-| capacity     | VARCHAR | The capacity of the train.            |
-| employees_id | INT     | The employees assigned to this train. |
+| Column      | Type     | Description                           |
+|-------------|----------|---------------------------------------|
+| id          | PK       | The unique identifier of the train.   |
+| name        | VARCHAR  | The name of the train.                |
+| capacity    | INT      | The capacity of the train.            |
+| employee_id | FK (INT) | The employees assigned to this train. |
 
 ### Lines ###
 
-| Column | Type    | Description                        |
-|--------|---------|------------------------------------|
-| id     | PK      | The unique identifier of the line. |
-| name   | VARCHAR | The name of the line.              |
-| color  | VARCHAR | The name of the line.              |
+| Column | Type    | Description                         |
+|--------|---------|-------------------------------------|
+| id     | PK      | The unique identifier of the line.  |
+| name   | VARCHAR | The name of the line.               |
+| color  | VARCHAR | The color associated with the line. |
 
 ### Schedule ###
 
-| Column      | Type    | Description                                                 |
-|-------------|---------|-------------------------------------------------------------|
-| id          | PK      | The unique identifier of the schedule.                      |
-| name        | VARCHAR | The name of the schedule.                                   |
-| arrival     | JSONB   | A list of the arrival times for each station on the line.   |
-| departure   | JSONB   | A list of the departure times for each station on the line. |
-| stations_id | INT     | The station that follows this schedule.                     |
-| lines_id    | INT     | The lines that follows this schedule.                       |
-| trains_id   | INT     | The train that follows this schedule.                       |
+| Column         | Type                     | Description                                                 |
+|----------------|--------------------------|-------------------------------------------------------------|
+| id             | PK                       | The unique identifier of the schedule.                      |
+| name           | VARCHAR                  | The name of the schedule.                                   |
+| arrival_time   | TIMESTAMP WITH TIME ZONE | A list of the arrival times for each station on the line.   |
+| departure_time | TIMESTAMP WITH TIME ZONE | A list of the departure times for each station on the line. |
+| station_id     | FK (INT)                 | The station that follows this schedule.                     |
+| line_id        | FK (INT)                 | The lines that follows this schedule.                       |
+| train_id       | FK (INT)                 | The train that follows this schedule.                       |
 
 ### Stations ###
 
-| Column       | Type    | Description                             |
-|--------------|---------|-----------------------------------------|
-| id           | PK      | The unique identifier of the station.   |
-| name         | VARCHAR | The name of the station.                |
-| location     | VARCHAR | The address location of the station.    |
-| employees_id | INT     | The employees assigned to this station. |
+| Column      | Type     | Description                             |
+|-------------|----------|-----------------------------------------|
+| id          | PK       | The unique identifier of the station.   |
+| name        | VARCHAR  | The name of the station.                |
+| location    | VARCHAR  | The address location of the station.    |
+| employee_id | FK (INT) | The employees assigned to this station. |
 
 ## Junction Tables ##
 
 ### Stations_Line ###
 
-| Column     | Type | Description |
-|------------|------|-------------|
-| station_id | INT  | Station id  |
-| line_id    | INT  | Line id     |
+| Column     | Type     | Description |
+|------------|----------|-------------|
+| station_id | FK (INT) | Station id  |
+| line_id    | FK (INT) | Line id     |
 
 ### Trains_Schedule ###
 
-| Column      | Type | Description |
-|-------------|------|-------------|
-| train_id    | INT  | Train id    |
-| schedule_id | INT  | Schedule id |
+| Column      | Type     | Description |
+|-------------|----------|-------------|
+| train_id    | FK (INT) | Train id    |
+| schedule_id | FK (INT) | Schedule id |
 
 ## Relationships Explained ##
 
