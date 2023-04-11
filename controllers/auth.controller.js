@@ -1,33 +1,48 @@
-const {generateJWT, verifyJWT, decodeJWT} = require("../utils/jwt.util");
+const config = require('../config/config');
+
+const {generateJWT} = require("../utils/jwt.util");
+const {employeeService} = require('../services');
 
 module.exports = {
-    login: (req, res) => {
+    login: async (req, res, next) => {
+        try {
+            // Temporary implementation of a login endpoint using an in-memory array
+            const findUser = await employeeService.find(req);
 
-        /*
-        *   This is a demo of my JWT implementation
-        *   The actual login process will be implemented later
-        */
+            if (!findUser) {
+                return res.send('User not found');
+            }
 
+            // Hardcoded credentials for demo purposes
+            const header = {alg: 'HS256', typ: 'JWT'};
+            const payload = {name: req.body.name, password: req.body.password};
 
-        // Hardcoded credentials for demo purposes
-        const header = {alg: 'HS256', typ: 'JWT'};
-        const payload = {id: 1, name: 'Mikhail Tamashuk', role: 'Train Operator', assigned_to: 2};
-        const secret = 'Solvd';
+            const token = generateJWT(header, payload, config.secret);
 
-        const token = generateJWT(header, payload, secret);
+            // set the token request header
+            res.set('Authorization', `Bearer ${token}`);
 
-        if(!verifyJWT(token, secret)) {
-            res.status(401).send("Invalid token");
+            res.send(JSON.stringify({
+                message: 'Login Successful. Set the in the header the following [Authorization: Bearer <token>] and then try to access the homework through the /homework endpoint now please.',
+                token
+            }));
+        } catch (error) {
+            next(error);
         }
+    },
+    register: async (req, res, next) => {
+        try {
+            // Temporary implementation of a register endpoint using an in-memory array
+            const operationState = employeeService.create(req);
 
-        const decodedToken = decodeJWT(token);
+            if (!operationState) {
+                res.send('Registration Failed');
+            }
 
-        const response = {
-            message: `Login successful, welcome Mr. ${decodedToken.payload.name}`,
-            token
+            res.send('Registration Successful')
+        } catch (error) {
+            next(error);
         }
-
-        res.send(JSON.stringify(response));
     }
 }
 
