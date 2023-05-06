@@ -16,7 +16,6 @@ app.use((req, res, next) => {
     next(createError(404));
 });
 
-
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res) => {
     const status = err.statusCode || 500;
