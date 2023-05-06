@@ -1,7 +1,7 @@
 const authController = require('./auth.controller');
-const homeworkController = require('./homework.controller');
+const taskController = require('./task.controller');
 
 module.exports = {
     authController,
-    homeworkController
+    taskController
 }

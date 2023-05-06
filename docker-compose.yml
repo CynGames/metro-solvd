@@ -5,3 +5,13 @@ services:
     build: .
     ports:
       - "3000:3000"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: solvd_user
+      POSTGRES_PASSWORD: solvd_password
+      POSTGRES_DB: metro_system
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./metro_db/:/var/lib/postgresql/data
