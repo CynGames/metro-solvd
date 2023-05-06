@@ -10,7 +10,7 @@ CREATE DATABASE metro_system
 COMMENT ON DATABASE metro_system
     IS 'For Solvd LABA.';
 
-\c metro_system solvd_user
+-- \c metro_system solvd_user
 
 -- Create tables
 CREATE TABLE IF NOT EXISTS employee
