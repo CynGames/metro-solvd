@@ -1,9 +1,10 @@
 const config = require('../config/config');
 
-const {generateJWT} = require("../utils/jwt.util");
-const {employeeService} = require('../services');
+const { generateJWT } = require('../utils/jwt.util');
+const { employeeService } = require('../services');
 
 module.exports = {
+    // eslint-disable-next-line consistent-return
     login: async (req, res, next) => {
         try {
             // Temporary implementation of a login endpoint using an in-memory array
@@ -14,8 +15,8 @@ module.exports = {
             }
 
             // Hardcoded credentials for demo purposes
-            const header = {alg: 'HS256', typ: 'JWT'};
-            const payload = {name: req.body.name, password: req.body.password};
+            const header = { alg: 'HS256', typ: 'JWT' };
+            const payload = { name: req.body.name, password: req.body.password };
 
             const token = generateJWT(header, payload, config.secret);
 
@@ -24,7 +25,7 @@ module.exports = {
 
             res.send(JSON.stringify({
                 message: 'Login Successful. Set the in the header the following [Authorization: Bearer <token>] and then try to access the homework through the /homework endpoint now please.',
-                token
+                token,
             }));
         } catch (error) {
             next(error);
@@ -39,10 +40,9 @@ module.exports = {
                 res.send('Registration Failed');
             }
 
-            res.send('Registration Successful')
+            res.send('Registration Successful');
         } catch (error) {
             next(error);
         }
-    }
-}
-
+    },
+};

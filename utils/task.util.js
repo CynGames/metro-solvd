@@ -3,7 +3,7 @@ module.exports = {
         const passengerFlow = {
             morning: 1000,
             lunch: 500,
-            evening: 5000
+            evening: 5000,
         };
 
         const convertTimeStringToDate = (timeString) => {
@@ -15,8 +15,8 @@ module.exports = {
 
         const trainCapacity = 6 * 50;
 
-        return timePeriods.map(period => {
-            const {name, start_time: startTimeStr, end_time: endTimeStr} = period;
+        return timePeriods.map((period) => {
+            const { name, start_time: startTimeStr, end_time: endTimeStr } = period;
 
             const startTime = convertTimeStringToDate(startTimeStr);
             const endTime = convertTimeStringToDate(endTimeStr);
@@ -24,8 +24,10 @@ module.exports = {
             // Calculate the number of hours in the time period, accounting for overnight periods
             let timePeriodHours;
             if (endTime >= startTime) {
+                // eslint-disable-next-line max-len
                 timePeriodHours = (endTime.getHours() - startTime.getHours()) + ((endTime.getMinutes() - startTime.getMinutes()) / 60);
             } else {
+                // eslint-disable-next-line max-len
                 timePeriodHours = (24 - startTime.getHours() + endTime.getHours()) + ((endTime.getMinutes() - startTime.getMinutes()) / 60);
             }
 
@@ -39,13 +41,13 @@ module.exports = {
             const roundedInterval = Math.ceil(interval * 100) / 100;
 
             return {
-                "Time Period": name,
-                "Time Interval Between Trains": roundedInterval + " minutes"
+                'Time Period': name,
+                'Time Interval Between Trains': `${roundedInterval} minutes`,
             };
         });
     },
     getTimePeriods: async (pool) => {
         const result = await pool.query('SELECT * FROM time_periods');
         return result.rows;
-    }
-}
+    },
+};

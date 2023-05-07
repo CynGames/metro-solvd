@@ -1,8 +1,8 @@
-const {verifyJWT} = require("../utils/jwt.util");
+const { Pool } = require('pg');
+const { verifyJWT } = require('../utils/jwt.util');
 const config = require('../config/config');
-const {getTimePeriods, calculateTrainIntervals} = require("../utils/task.util");
+const { getTimePeriods, calculateTrainIntervals } = require('../utils/task.util');
 
-const {Pool} = require('pg');
 const pool = new Pool(config);
 
 module.exports = {
@@ -25,7 +25,7 @@ module.exports = {
             res.status(200).json(trainIntervals);
         } catch (err) {
             console.error(err);
-            res.status(500).json({message: 'Internal server error'});
+            res.status(500).json({ message: 'Internal server error' });
         }
-    }
-}
+    },
+};

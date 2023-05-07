@@ -2,7 +2,6 @@ const crypto = require('crypto');
 
 module.exports = {
     generateJWT: (header, payload, secret) => {
-
         // Use Buffer.from to convert the string into binary data
         const encodedHeader = Buffer.from(JSON.stringify(header)).toString('base64url');
         const encodedPayload = Buffer.from(JSON.stringify(payload)).toString('base64url');
@@ -33,5 +32,5 @@ module.exports = {
         const payload = JSON.parse(Buffer.from(encodedPayload, 'base64url').toString());
 
         return { header, payload };
-    }
-}
+    },
+};
