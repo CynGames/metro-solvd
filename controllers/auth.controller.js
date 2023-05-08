@@ -23,12 +23,12 @@ module.exports = {
             // set the token request header
             res.set('Authorization', `Bearer ${token}`);
 
-            res.send(JSON.stringify({
+            return res.send(JSON.stringify({
                 message: 'Login Successful. Set the in the header the following [Authorization: Bearer <token>] and then try to access the homework through the /homework endpoint now please.',
                 token,
             }));
         } catch (error) {
-            next(error);
+            return next(error);
         }
     },
     register: async (req, res, next) => {
@@ -37,12 +37,12 @@ module.exports = {
             const operationState = employeeService.create(req);
 
             if (!operationState) {
-                res.send('Registration Failed');
+                return res.send('Registration Failed');
             }
 
-            res.send('Registration Successful');
+            return res.send('Registration Successful');
         } catch (error) {
-            next(error);
+            return next(error);
         }
     },
 };

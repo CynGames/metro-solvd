@@ -3,6 +3,6 @@ const { taskController } = require('../controllers');
 
 const router = Router();
 
-router.get('/', taskController.get);
+router.get('/', taskController.getTaskResolution);
 
 module.exports = router;

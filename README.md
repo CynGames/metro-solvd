@@ -51,21 +51,21 @@
     - [PUT api/schedules](./documentation/ENDPOINTS-README.md#put-apischedulesid)
     - [DELETE api/schedules](./documentation/ENDPOINTS-README.md#delete-apischedulesid)
 
-## Overview ##
+## Overview
 
 This API is part of the LABA internship from Solvd. 
 
 It allows you to manage resources for a metro managing company, including employees, trains, schedules and
 stations.
 
-## Setup ##
+## Setup
 
 1. Install [Docker](https://www.docker.com/products/docker-desktop).
 2. Clone this repository.
 3. Run `docker-compose up`.
 4. Open `http://localhost:3000` in your browser.
 
-## Summary of the relationship between objects ##
+## Summary of the relationship between objects
 
 - `Line` contains a list of `Stations` that it stops at.
 - `Train` runs on a specific `Line` and follows a `Schedule`. 
@@ -87,3 +87,8 @@ Employee -> Station (one-to-one)
 Station -> Employee (one-to-one)
 Employee -> Train (one-to-one)
 Train -> Employee (one-to-one)
+
+TODO: 
+Do tests
+Do doc
+Check db 

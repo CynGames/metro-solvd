@@ -1,15 +1,15 @@
-# Authentication #
+# Authentication
 
-## Table of Contents ##
+## Table of Contents 
 
 - [Authentication Process](#authentication-process)
   - [Register](#register)
   - [Login](#login)
 
     
-## Authentication Process ##
+## Authentication Process
 
-### Register ###
+### Register
 
 The API uses JWT authentication. The steps for authentication are the following:
 
@@ -30,7 +30,7 @@ Example of response:
 Registration Successful
 ```
 
-### Login ###
+### Login
 
 Send a POST request to `/api/auth/login` with a body with the name and the password properties.
 

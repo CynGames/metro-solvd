@@ -6,7 +6,7 @@ const { getTimePeriods, calculateTrainIntervals } = require('../utils/task.util'
 const pool = new Pool(config);
 
 module.exports = {
-    get: async (req, res) => {
+    getTaskResolution: async (req, res) => {
         try {
             // get the jwt from the header
             const token = req.headers.authorization.split(' ')[1];
@@ -22,10 +22,11 @@ module.exports = {
             const timePeriods = await getTimePeriods(pool);
             const trainIntervals = calculateTrainIntervals(timePeriods);
 
-            res.status(200).json(trainIntervals);
+            return res.status(200).json(trainIntervals);
         } catch (err) {
+            // eslint-disable-next-line no-console
             console.error(err);
-            res.status(500).json({ message: 'Internal server error' });
+            return res.status(500).json({ message: 'Internal server error' });
         }
     },
 };
