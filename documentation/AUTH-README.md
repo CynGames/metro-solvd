@@ -1,6 +1,6 @@
 # Authentication
 
-## Table of Contents 
+## Table of Contents
 
 - [Authentication Process](#authentication-process)
   - [Register](#register)

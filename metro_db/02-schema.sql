@@ -1,18 +1,11 @@
--- To create the database run the following:
-CREATE DATABASE metro_system
-    WITH
-    OWNER = solvd_user
-    ENCODING = 'UTF8'
-    TABLESPACE = pg_default
-    CONNECTION LIMIT = -1
-    IS_TEMPLATE = False;
-
-COMMENT ON DATABASE metro_system
-    IS 'For Solvd LABA.';
-
--- \c metro_system solvd_user
-
 -- Create tables
+CREATE TABLE IF NOT EXISTS system_user
+(
+    id       SERIAL PRIMARY KEY,
+    name     VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+
 CREATE TABLE IF NOT EXISTS employee
 (
     id       SERIAL PRIMARY KEY,

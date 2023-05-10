@@ -1,5 +1,5 @@
 // employeeController.js
-const db = require('../database/db');
+const db = require('../metro_db/db');
 
 module.exports = {
     getAllEmployees: async (req, res) => {

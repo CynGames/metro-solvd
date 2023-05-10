@@ -1,6 +1,6 @@
-# Endpoints API Documentation #
+# Endpoints API Documentation
 
-# Table of Contents #
+# Table of Contents
 
 - [Endpoints API Documentation](#endpoints-api-documentation)
     - [Employees Overview (api/employees)](#employees-overview-apiemployees)
@@ -34,13 +34,13 @@
         - [PUT api/schedules](#put-apischedulesid)
         - [DELETE api/schedules](#delete-apischedulesid)
 
-## Homework Endpoint (`api/homework`) ##
+## Homework Endpoint (`api/homework`)
 
 GET `api/homework` - Returns the initial homework topic.
 
 This is a special protected endpoint that will be removed or refactored in the future.
 
-## Employees Overview `(api/employees)` ##
+## Employees Overview `(api/employees)`
 
 | Method | Endpoint       | Description                               | Successful Response Code | Error Response Code               |
 |--------|----------------|-------------------------------------------|--------------------------|-----------------------------------|
@@ -50,9 +50,9 @@ This is a special protected endpoint that will be removed or refactored in the f
 | PUT    | /employees/:id | Updates an existing employee              | 201                      | 400 if incorrect params. Else 404 |
 | DELETE | /employees/:id | Deletes an existing employee              | 200                      | 200                               |
 
-## Detailed Employee Endpoints ##
+## Detailed Employee Endpoints
 
-### GET api/employees ###
+### GET api/employees
 
 **Request**
 
@@ -77,7 +77,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }]
 > ```
 
-#### Query Parameters ####
+#### Query Parameters
 
 | Parameter   | Type    | Description                                                                         |
 |-------------|---------|-------------------------------------------------------------------------------------|
@@ -104,7 +104,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }]
 > ```
 
-### GET api/employees/id ###
+### GET api/employees/id
 
 **Request**
 > `api/employees/1`
@@ -119,7 +119,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-#### Query Parameters ####
+#### Query Parameters
 
 | Parameter | Type   | Description                             |
 |-----------|--------|-----------------------------------------|
@@ -139,7 +139,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### POST api/employees ###
+### POST api/employees
 
 **Request**
 > `api/employees`
@@ -161,7 +161,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### PUT api/employees ###
+### PUT api/employees
 
 **Request**
 > `api/employees/4`
@@ -183,7 +183,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### DELETE api/employees ###
+### DELETE api/employees
 
 **Request**
 > `api/employees/4`
@@ -196,7 +196,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### Trains Overview `(api/trains)` ###
+### Trains Overview `(api/trains)`
 
 | Method | Endpoint    | Description                            | Successful Response Code | Error Response Code               |
 |--------|-------------|----------------------------------------|--------------------------|-----------------------------------|
@@ -206,9 +206,9 @@ This is a special protected endpoint that will be removed or refactored in the f
 | PUT    | /trains/:id | Updates an existing train              | 201                      | 400 if incorrect params. Else 404 |
 | DELETE | /trains/:id | Deletes an existing train              | 200                      | 200                               |
 
-## Detailed Train Endpoints ##
+## Detailed Train Endpoints
 
-### GET api/trains ###
+### GET api/trains
 
 **Request**
 
@@ -254,7 +254,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }]
 > ```
 
-### GET api/trains/id ###
+### GET api/trains/id
 
 **Request**
 
@@ -270,7 +270,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### POST api/trains ###
+### POST api/trains
 
 **Request**
 
@@ -292,7 +292,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### PUT api/trains ###
+### PUT api/trains
 
 **Request**
 
@@ -314,7 +314,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### DELETE api/trains ###
+### DELETE api/trains
 
 **Request**
 
@@ -328,7 +328,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### Lines Overview `(api/lines)` ###
+### Lines Overview `(api/lines)`
 
 | Method | Endpoint   | Description                           | Successful Response Code | Error Response Code               |
 |--------|------------|---------------------------------------|--------------------------|-----------------------------------|
@@ -338,9 +338,9 @@ This is a special protected endpoint that will be removed or refactored in the f
 | PUT    | /lines/:id | Updates an existing line              | 201                      | 400 if incorrect params. Else 404 |
 | DELETE | /lines/:id | Deletes an existing line              | 200                      | 200                               |
 
-## Detailed Line Endpoints ##
+## Detailed Line Endpoints
 
-### GET api/lines ###
+### GET api/lines
 
 **Request**
 
@@ -361,7 +361,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > ```
 >
 
-#### Lines Query Parameters ####
+#### Lines Query Parameters
 
 | Parameter   | Type             | Description                                   |
 |-------------|------------------|-----------------------------------------------|
@@ -382,7 +382,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }]
 > ```
 
-### GET api/lines/id ###
+### GET api/lines/id
 
 **Request**
 
@@ -398,7 +398,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### POST api/lines ###
+### POST api/lines
 
 **Request**
 
@@ -421,7 +421,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### PUT api/lines/id ###
+### PUT api/lines/id
 
 **Request**
 
@@ -444,7 +444,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### DELETE api/lines/id ###
+### DELETE api/lines/id
 
 **Request**
 
@@ -459,7 +459,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### Schedules Overview `(api/schedules)` ###
+### Schedules Overview `(api/schedules)`
 
 | Method | Endpoint       | Description                               | Successful Response Code | Error Response Code               |
 |--------|----------------|-------------------------------------------|--------------------------|-----------------------------------|
@@ -469,9 +469,9 @@ This is a special protected endpoint that will be removed or refactored in the f
 | PUT    | /schedules/:id | Updates an existing schedule              | 201                      | 400 if incorrect params. Else 404 |
 | DELETE | /schedules/:id | Deletes an existing schedule              | 200                      | 200                               |
 
-## Detailed Schedule Endpoints ##
+## Detailed Schedule Endpoints
 
-### GET api/schedules ###
+### GET api/schedules
 
 **Request**
 > `api/schedules`
@@ -501,7 +501,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }]
 > ```
 
-#### Query Parameters ####
+#### Query Parameters
 
 | Parameter | Type                                                 | Description                                                 |
 |-----------|------------------------------------------------------|-------------------------------------------------------------|
@@ -539,7 +539,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }]
 > ```
 
-### GET api/schedules/id ###
+### GET api/schedules/id
 
 **Request**
 
@@ -560,7 +560,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### POST api/schedules ###
+### POST api/schedules
 
 **Request**
 
@@ -588,7 +588,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### PUT api/schedules/id ###
+### PUT api/schedules/id
 
 **Request**
 
@@ -616,7 +616,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### DELETE api/schedules/id ###
+### DELETE api/schedules/id
 
 **Request**
 
@@ -631,7 +631,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### Stations Overview `(api/stations)` ###
+### Stations Overview `(api/stations)`
 
 | Method | Endpoint      | Description                              | Successful Response Code | Error Response Code               |
 |--------|---------------|------------------------------------------|--------------------------|-----------------------------------|
@@ -641,9 +641,9 @@ This is a special protected endpoint that will be removed or refactored in the f
 | PUT    | /stations/:id | Updates an existing station              | 201                      | 400 if incorrect params. Else 404 |
 | DELETE | /stations/:id | Deletes an existing station              | 200                      | 200                               |
 
-## Detailed Station Endpoints ##
+## Detailed Station Endpoints
 
-### GET api/stations ###
+### GET api/stations
 
 **Request**
 > `api/stations`
@@ -667,7 +667,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }]
 > ```
 
-#### Query Parameters ####
+#### Query Parameters
 
 | Parameter   | Type    | Description                             |
 |-------------|---------|-----------------------------------------|
@@ -688,7 +688,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }]
 > ```
 
-### GET api/stations/id ###
+### GET api/stations/id
 
 **Request**
 
@@ -705,7 +705,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### POST api/stations ###
+### POST api/stations
 
 **Request**
 
@@ -729,7 +729,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### PUT api/stations/id ###
+### PUT api/stations/id
 
 **Request**
 
@@ -753,7 +753,7 @@ This is a special protected endpoint that will be removed or refactored in the f
 > }
 > ```
 
-### DELETE api/stations/id ###
+### DELETE api/stations/id
 
 **Request**
 

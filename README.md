@@ -4,6 +4,7 @@
 
 - [Overview](#overview)
 - [Setup](#setup)
+- [Summary](#summary-of-the-relationship-between-objects)
 - [Authentication](./documentation/AUTH-README.md#authentication)
     - [Register](./documentation/AUTH-README.md#register)
     - [Login](./documentation/AUTH-README.md#login)

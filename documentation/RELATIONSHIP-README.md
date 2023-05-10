@@ -1,26 +1,26 @@
-# Data Modeling #
+# Data Modeling
 
-## Table of Contents ##
+## Table of Contents
 
-- [Entity Relationship Diagram](#entity-relationship-diagram-)
-- [Detailed Table Information](#detailed-table-information-)
-    - [Employee](#employee-)
-    - [Trains](#trains-)
-    - [Lines](#lines-)
-    - [Stations](#stations-)
-    - [Schedule](#schedule-)
-- [Junction Tables](#junction-tables-)
-    - [Stations_Line](#stationsline-)
-    - [Trains_Schedule](#trainsschedule-)
-- [Relationships Explained](#relationships-explained-)
+- [Entity Relationship Diagram](#entity-relationship-diagram)
+- [Detailed Table Information](#detailed-table-information)
+    - [Employee](#employee)
+    - [Trains](#trains)
+    - [Lines](#lines)
+    - [Stations](#stations)
+    - [Schedule](#schedule)
+- [Junction Tables](#junction-tables)
+    - [Stations_Line](#stationsline)
+    - [Trains_Schedule](#trainsschedule)
+- [Relationships Explained](#relationships-explained)
 
-## Entity Relationship Diagram ##
+## Entity Relationship Diagram
 
 ![ERD - Metro](ERD_Metro.png)
 
-## Detailed Table Information ##
+## Detailed Table Information
 
-### Employee ###
+### Employee
 
 | Column   | Type    | Description                            |
 |----------|---------|----------------------------------------|
@@ -28,7 +28,7 @@
 | name     | VARCHAR | The name of the employee.              |
 | job_role | VARCHAR | The role or job title of the employee. |
 
-### Trains ###
+### Trains
 
 | Column      | Type     | Description                           |
 |-------------|----------|---------------------------------------|
@@ -37,7 +37,7 @@
 | capacity    | INT      | The capacity of the train.            |
 | employee_id | FK (INT) | The employees assigned to this train. |
 
-### Lines ###
+### Lines
 
 | Column | Type    | Description                         |
 |--------|---------|-------------------------------------|
@@ -45,7 +45,7 @@
 | name   | VARCHAR | The name of the line.               |
 | color  | VARCHAR | The color associated with the line. |
 
-### Schedule ###
+### Schedule
 
 | Column         | Type                     | Description                                                 |
 |----------------|--------------------------|-------------------------------------------------------------|
@@ -57,7 +57,7 @@
 | line_id        | FK (INT)                 | The lines that follows this schedule.                       |
 | train_id       | FK (INT)                 | The train that follows this schedule.                       |
 
-### Stations ###
+### Stations
 
 | Column      | Type     | Description                             |
 |-------------|----------|-----------------------------------------|
@@ -66,23 +66,23 @@
 | location    | VARCHAR  | The address location of the station.    |
 | employee_id | FK (INT) | The employees assigned to this station. |
 
-## Junction Tables ##
+## Junction Tables
 
-### Stations_Line ###
+### Stations_Line
 
 | Column     | Type     | Description |
 |------------|----------|-------------|
 | station_id | FK (INT) | Station id  |
 | line_id    | FK (INT) | Line id     |
 
-### Trains_Schedule ###
+### Trains_Schedule
 
 | Column      | Type     | Description |
 |-------------|----------|-------------|
 | train_id    | FK (INT) | Train id    |
 | schedule_id | FK (INT) | Schedule id |
 
-## Relationships Explained ##
+## Relationships Explained
 
 The relationships between the tables are:
 

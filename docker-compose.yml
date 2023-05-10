@@ -1,17 +1,42 @@
 version: "3"
 services:
-  web:
-    container_name: metro
+  app:
+    container_name: metro_app
     build: .
     ports:
       - "3000:3000"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    depends_on:
+      - db
+
   db:
     image: postgres
+    container_name: metro_db
+    restart: always
+    ports:
+      - "5432:5432"
     environment:
       POSTGRES_USER: solvd_user
       POSTGRES_PASSWORD: solvd_password
       POSTGRES_DB: metro_system
-    ports:
-      - "5432:5432"
     volumes:
-      - ./metro_db/:/var/lib/postgresql/data
+      - db_data:/var/lib/postgresql/data
+      - ./metro_db/:/docker-entrypoint-initdb.d/
+#
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    container_name: metro_pgadmin
+#    ports:
+#      - "5050:80"
+#    volumes:
+#      - /data/pgadmin:/root/.pgadmin
+#    depends_on:
+#      - db
+#    env_file:
+#      - .env
+
+volumes:
+  db_data: {}
