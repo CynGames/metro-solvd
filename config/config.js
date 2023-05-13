@@ -7,6 +7,7 @@ if (process.env.DATABASE_URL) {
     const auth = params.auth.split(':');
 
     config = {
+        secret: process.env.SECRET,
         user: auth[0],
         password: auth[1],
         host: params.hostname,
