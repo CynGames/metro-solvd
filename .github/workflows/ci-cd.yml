@@ -47,6 +47,9 @@ jobs:
         with:
           node-version: 14
 
+      - name: Install Jest
+        run: npm install -g jest
+
       - name: Wait for PostgreSQL to start
         run: sleep 10
 
