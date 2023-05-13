@@ -56,6 +56,11 @@ jobs:
       - name: Setup database
         run: PGPASSWORD=solvd_password psql -h localhost -U solvd_user -d metro_system -f ./metro_db/02-schema.sql
 
+      - name: Check Jest and ts-jest versions
+        run: |
+          jest --version
+          ts-jest config:init
+
       - name: Run __tests__
         run: npm test
         env:
