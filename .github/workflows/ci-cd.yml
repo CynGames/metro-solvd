@@ -51,7 +51,7 @@ jobs:
         run: npm ci
 
       - name: Setup database
-        run: psql ${{ env.DATABASE_URL }} < ./metro_db/02-schema.sql
+        run: psql ${{ env.DATABASE_URL }} < ../../metro_db/02-schema.sql
 
       - name: Run __tests__
         run: npm test
