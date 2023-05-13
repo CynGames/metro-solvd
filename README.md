@@ -59,12 +59,16 @@ This API is part of the LABA internship from Solvd.
 It allows you to manage resources for a metro managing company, including employees, trains, schedules and
 stations.
 
+Present limitations: 
+- The API is not deployed anywhere, so you will have to run it locally. 
+- Management of **trains**, **schedules** and **stations** is a work in progress.
+
 ## Setup
 
 1. Install [Docker](https://www.docker.com/products/docker-desktop).
 2. Clone this repository.
 3. Run `docker-compose up`.
-4. Open `http://localhost:3000` in your browser.
+4. Access the API through `http://localhost:3000`.
 
 In case you want to run tests, you can do so by running `npm run test`.
 

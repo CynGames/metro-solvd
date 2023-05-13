@@ -4,6 +4,7 @@
 
 - [Entity Relationship Diagram](#entity-relationship-diagram)
 - [Detailed Table Information](#detailed-table-information)
+    - [System_user](#systemuser)
     - [Employee](#employee)
     - [Trains](#trains)
     - [Lines](#lines)
@@ -19,6 +20,14 @@
 ![ERD - Metro](ERD_Metro.png)
 
 ## Detailed Table Information
+
+### System_user
+
+| Column   | Type    | Description                               |
+|----------|---------|-------------------------------------------|
+| id       | PK      | The unique identifier of the system_user. |
+| name     | VARCHAR | The name of the system_user.              |
+| password | VARCHAR | The password of the system_user.          |
 
 ### Employee
 

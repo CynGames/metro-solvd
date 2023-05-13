@@ -15,7 +15,6 @@ services:
   db:
     image: postgres
     container_name: metro_db
-    restart: always
     ports:
       - "5432:5432"
     environment:
@@ -25,6 +24,16 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
       - ./metro_db/:/docker-entrypoint-initdb.d/
+
+  test:
+    build: .
+    command: npm run test
+    volumes:
+      - .:/app
+    environment:
+      DATABASE_URL: postgres://solvd_user:solvd_password@db:5432/metro_system
+    depends_on:
+      - db
 
 volumes:
   db_data: {}

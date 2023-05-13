@@ -34,11 +34,62 @@
         - [PUT api/schedules](#put-apischedulesid)
         - [DELETE api/schedules](#delete-apischedulesid)
 
-## Homework Endpoint (`api/homework`)
+## Task Endpoint (`api/task`)
 
-GET `api/homework` - Returns the initial homework topic.
+GET `api/task` - Returns the homework/task resolution.
 
-This is a special protected endpoint that will be removed or refactored in the future.
+## Authentication Endpoint (`api/auth`)
+
+## Task Overview `(api/task)`
+
+| Method | Endpoint       | Description                               | Successful Response Code | Error Response Code               |
+|--------|----------------|-------------------------------------------|--------------------------|-----------------------------------|
+| GET    | /employees     | Returns a list of all employees           | 200                      | 404                               |
+| GET    | /employees/:id | Returns details about a specific employee | 200                      | 400 if incorrect params. Else 404 |
+| POST   | /employees     | Creates a new employee                    | 201                      | 400 if incorrect params. Else 404 |
+| PUT    | /employees/:id | Updates an existing employee              | 201                      | 400 if incorrect params. Else 404 |
+| DELETE | /employees/:id | Deletes an existing employee              | 200                      | 200                               |
+
+
+### Register
+
+POST `api/auth/register` - Registers a new user.
+
+**Request Body**
+
+> ```
+> {
+>  "name": "Tomas",
+>  "password": "Test12345"
+> }
+> ```
+
+**Response Body**
+
+> ```
+> Registration Successful
+> ```
+
+### Login
+
+POST `api/auth/login` - Logs in a user.
+
+**Request Body**
+
+> ```
+> {
+> "name": "Tomas",
+> "password": "Test12345"
+> }
+> ```
+
+**Response Body**
+
+> ```
+> {
+> "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IlRvbWFzIiwiaWF0IjoxNTk0NjQ0NjQ2LCJleH
+> }
+> ```
 
 ## Employees Overview `(api/employees)`
 
