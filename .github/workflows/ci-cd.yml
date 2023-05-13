@@ -53,4 +53,4 @@ jobs:
       - name: Run __tests__
         run: npm test
         env:
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432/metro_system
+          DATABASE_URL: postgres://solvd_user:solvd_password@localhost:5432/metro_system
