@@ -62,6 +62,6 @@ jobs:
           ts-jest config:init
 
       - name: Run __tests__
-        run: npm test
+        run: npm test -- --no-cache
         env:
           DATABASE_URL: postgres://solvd_user:solvd_password@localhost:5432/metro_system
