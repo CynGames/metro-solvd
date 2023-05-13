@@ -26,7 +26,7 @@ module.exports = {
             res.set('Authorization', `Bearer ${token}`);
 
             return res.send(JSON.stringify({
-                message: 'Login Successful. Here is the token [Authorization: Bearer <token>]. You are now cleared to view and add employees.',
+                message: 'Login Successful. With this token you are now cleared to view, add, edit or delete employees.',
                 token,
             }));
         } catch (error) {
@@ -37,6 +37,10 @@ module.exports = {
         try {
             // Extract the name and password inserted by the user
             const { name, password } = req.body;
+
+            if (!name || !password) {
+                return res.status(401).send('Must provide name and password');
+            }
 
             // Query the database
             const { rows } = await db.query('INSERT INTO system_user (name, password) VALUES ($1, $2) RETURNING id', [name, password]);

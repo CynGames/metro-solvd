@@ -16,7 +16,7 @@ module.exports = {
 
             // if the jwt is valid, return the homework
             if (!verified) {
-                res.send('Unauthorized request, please login');
+                return res.status(401).send('Unauthorized request, please login');
             }
 
             const timePeriods = await getTimePeriods(pool);

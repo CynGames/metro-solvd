@@ -8,7 +8,8 @@
     "start": "node .",
     "dev": "nodemon .",
     "lint": "eslint .",
-    "test": "jest"
+    "test": "jest",
+    "docker:test": "docker-compose up --abort-on-container-exit test"
   },
   "keywords": [],
   "license": "ISC",
