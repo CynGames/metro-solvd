@@ -1,22 +1,12 @@
 const request = require('supertest');
 const app = require('../app');
 const { generateJWT } = require('../utils/jwt.util');
-const { secret, port } = require('../config/config');
+const { secret } = require('../config/config');
 
 const validToken = generateJWT({ alg: 'HS256', typ: 'JWT' }, { user: 'test' }, secret);
 const invalidToken = 'invalid_token';
 
 describe('Task Controller', () => {
-    let server;
-
-    beforeAll(() => {
-        server = app.listen(port);
-    });
-
-    afterAll((done) => {
-        server.close(done);
-    });
-
     it('should fail to get task resolution with an invalid token', async () => {
         const res = await request(app)
             .get('/api/task')

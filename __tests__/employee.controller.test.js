@@ -1,15 +1,9 @@
 const request = require('supertest');
 const app = require('../app');
 const db = require('../metro_db/db');
-const { port } = require('../config/config');
 
 describe('Employee Controller', () => {
-    let server;
     let employeeId;
-
-    beforeAll(() => {
-        server = app.listen(port);
-    });
 
     beforeEach(async () => {
         await db.query('DELETE FROM Employee WHERE name = $1', ['test']);
@@ -22,12 +16,9 @@ describe('Employee Controller', () => {
         employeeId = result.rows[0].id;
     }, 10000);
 
-    afterAll((done) => {
-        db.query('DELETE FROM Employee WHERE name = $1', ['test'])
-            .then(() => {
-                server.close(done);
-            })
-            .catch((err) => done(err));
+    afterAll(async () => {
+        await db.query('DELETE FROM Employee WHERE name = $1', ['test']);
+        await db.pool.end();
     });
 
     it('should get all employees', async () => {

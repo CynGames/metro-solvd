@@ -1,25 +1,15 @@
 const request = require('supertest');
 const app = require('../app');
 const db = require('../metro_db/db');
-const { port } = require('../config/config');
 
 describe('Auth Controller', () => {
-    let server;
-
-    beforeAll(() => {
-        server = app.listen(port);
-    });
-
     beforeEach(async () => {
         await db.query('DELETE FROM system_user WHERE name = $1', ['test']);
     });
 
-    afterAll((done) => {
-        db.query('DELETE FROM system_user WHERE name = $1', ['test'])
-            .then(() => {
-                server.close(done);
-            })
-            .catch((err) => done(err));
+    afterAll(async () => {
+        await db.query('DELETE FROM system_user WHERE name = $1', ['test']);
+        await db.pool.end();
     });
 
     it('should fail to login a non-existing user', async () => {

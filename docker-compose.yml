@@ -25,17 +25,17 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
       - ./metro_db/:/docker-entrypoint-initdb.d/
-
-  test:
-    container_name: metro_app_test
-    build: .
-    volumes:
-      - .:/app
-    env_file:
-      - .env
-    command: npm run test
-    depends_on:
-      - db
+#
+#  test:
+#    container_name: metro_app_test
+#    build: .
+#    volumes:
+#      - .:/app
+#    env_file:
+#      - .env
+#    command: npm run test
+#    depends_on:
+#      - db
 
 volumes:
   db_data: {}

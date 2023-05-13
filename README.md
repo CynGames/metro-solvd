@@ -66,6 +66,8 @@ stations.
 3. Run `docker-compose up`.
 4. Open `http://localhost:3000` in your browser.
 
+In case you want to run tests, you can do so by running `npm run test`.
+
 ## Summary of the relationship between objects
 
 - `Line` contains a list of `Stations` that it stops at.
@@ -88,8 +90,3 @@ Employee -> Station (one-to-one)
 Station -> Employee (one-to-one)
 Employee -> Train (one-to-one)
 Train -> Employee (one-to-one)
-
-TODO: 
-Do tests
-Do doc
-Check db 
