@@ -1,0 +1,66 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npx eslint .
+
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:13
+        env:
+          POSTGRES_USER: solvd_user
+          POSTGRES_PASSWORD: solvd_password
+          POSTGRES_DB: metro_system
+        ports:
+          - 5432:5432
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Jest and ts-jest locally
+        run: npm install jest ts-jest
+
+      - name: Wait for PostgreSQL to start
+        run: sleep 10
+
+      - name: Setup database
+        run: PGPASSWORD=solvd_password psql -h localhost -U solvd_user -d metro_system -f ./metro_db/02-schema.sql
+
+      - name: Run __tests__
+        run: npm test -- --no-cache
+        env:
+          DATABASE_URL: postgres://solvd_user:solvd_password@localhost:5432/metro_system
+          SECRET: ${{ secrets.SECRET }}

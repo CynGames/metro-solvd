@@ -4,6 +4,7 @@
 
 - [Overview](#overview)
 - [Setup](#setup)
+- [Summary](#summary-of-the-relationship-between-objects)
 - [Authentication](./documentation/AUTH-README.md#authentication)
     - [Register](./documentation/AUTH-README.md#register)
     - [Login](./documentation/AUTH-README.md#login)
@@ -51,21 +52,27 @@
     - [PUT api/schedules](./documentation/ENDPOINTS-README.md#put-apischedulesid)
     - [DELETE api/schedules](./documentation/ENDPOINTS-README.md#delete-apischedulesid)
 
-## Overview ##
+## Overview
 
 This API is part of the LABA internship from Solvd. 
 
 It allows you to manage resources for a metro managing company, including employees, trains, schedules and
 stations.
 
-## Setup ##
+Present limitations: 
+- The API is not deployed anywhere, so you will have to run it locally. 
+- Management of **trains**, **schedules** and **stations** is a work in progress.
+
+## Setup
 
 1. Install [Docker](https://www.docker.com/products/docker-desktop).
 2. Clone this repository.
 3. Run `docker-compose up`.
-4. Open `http://localhost:3000` in your browser.
+4. Access the API through `http://localhost:3000`.
 
-## Summary of the relationship between objects ##
+In case you want to run tests, you can do so by running `npm run test`.
+
+## Summary of the relationship between objects
 
 - `Line` contains a list of `Stations` that it stops at.
 - `Train` runs on a specific `Line` and follows a `Schedule`. 
